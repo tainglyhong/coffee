@@ -4,7 +4,7 @@ const products = [
     id: 1,
     name: "Barista Pro Grinder",
     price: "$149.00",
-    image: "1.jpg",
+    image: "images/1.jpg",
     description: "Professional-grade coffee grinder with precise settings.",
     category: "Grinder",
   },
