@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bean Culture - Modern Coffee Essentials</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Brighter tone variables with blue accent */
+        --primary: #ffffff; /* White background for cards */
+        --accent: #964b00; /* Bright blue accent */
+        --light: #f9f9f9; /* Overall light background */
+        --text: #333333; /* Dark text */
+        --heading: #222222;
+        --subtext: #666666;
+        --gradient-start: #e0e0e0;
+        --gradient-end: #f0f0f0;
+      }
+
+      /* Fade In and Fade Out Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-in-out forwards;
+      }
+      .fade-out {
+        animation: fadeOut 0.5s ease-in-out forwards;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      /* Global Text Styling */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--heading);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: var(--subtext);
+        font-size: 1rem;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: var(--heading);
+      }
+
+      /* Modern Header */
+      header {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1.5rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: -1px;
+      }
+      .logo span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+      }
+      .nav-links a {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+      .cart-counter {
+        background: var(--accent);
+        color: #ffffff;
+        padding: 0.5rem 1.2rem;
+        border-radius: 30px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1551030173-122aabc4489c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        margin-top: 80px;
+      }
+      .hero-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem;
+        color: var(--heading);
+        text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
+      }
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Modern Category Filter Buttons */
+      .categories {
+        max-width: 1280px;
+        margin: 6rem auto 2rem;
+        padding: 0 2rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .categories button {
+        background: linear-gradient(
+          135deg,
+          var(--gradient-start),
+          var(--gradient-end)
+        );
+        color: var(--text);
+        border: none;
+        padding: 0.7rem 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        font-weight: 500;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .categories button:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      /* Products Section */
+      .products {
+        max-width: 1280px;
+        margin: 0 auto 6rem;
+        padding: 0 2rem;
+      }
+      .products h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+        color: var(--heading);
+      }
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+      }
+      .product-card {
+        background: var(--primary);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+      }
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      }
+      .product-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-bottom: 4px solid var(--accent);
+      }
+      .product-info {
+        padding: 1.5rem;
+      }
+      .product-info h3 {
+        color: var(--heading);
+        margin-bottom: 0.5rem;
+        text-transform: none;
+        font-size: 1.4rem;
+      }
+      .product-price {
+        color: var(--accent);
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 1rem 0;
+      }
+      .add-to-cart {
+        background: var(--primary);
+        color: var(--text);
+        border: 1px solid var(--text);
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        font-weight: 600;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+      .add-to-cart:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--primary);
+      }
+
+      /* About Section (Our Story) */
+      #about {
+        max-width: 1280px;
+        margin: 6rem auto;
+        padding: 0 2rem;
+      }
+      #about h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: var(--heading);
+      }
+      #about p {
+        max-width: 800px;
+        margin: 0 auto 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        color: var(--subtext);
+      }
+
+      /* Journal (Blog) Section */
+      #blog {
+        max-width: 1280px;
+        margin: 6rem auto;
+        padding: 0 2rem;
+      }
+      #blog h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: var(--heading);
+      }
+      .blog-post {
+        background: var(--primary);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+      .blog-post h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--heading);
+        text-transform: none;
+      }
+      .blog-post p {
+        font-size: 1rem;
+        color: var(--subtext);
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1001;
+      }
+      .modal-content {
+        background: var(--light);
+        padding: 2rem;
+        border-radius: 16px;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        color: var(--text);
+        opacity: 0;
+      }
+      .modal-content.fade-in {
+        animation: fadeIn 0.5s ease forwards;
+      }
+      .modal img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .close-modal {
+        background: var(--accent);
+        color: #ffffff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary);
+        color: var(--text);
+        padding: 4rem 2rem;
+        margin-top: 6rem;
+      }
+      .footer-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+      }
+      .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent);
+      }
+      .footer-section p {
+        line-height: 1.6;
+      }
+      .footer-section a {
+        color: var(--accent);
+        text-decoration: none;
+        display: block;
+        margin: 0.8rem 0;
+        transition: color 0.3s ease;
+      }
+      .footer-section a:hover {
+        color: var(--heading);
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">BEAN<span>CULTURE</span></div>
+        <div class="nav-links">
+          <a href="#products">Shop</a>
+          <a href="#about">Our Story</a>
+          <a href="#blog">Journal</a>
+          <div class="cart-counter" onclick="openCart()">
+            🛒 <span id="cartCount">0</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Craft Your Perfect Coffee Experience</h1>
+        <p>Premium tools for coffee enthusiasts and professional baristas</p>
+        <button onclick="scrollToProducts()" class="add-to-cart">
+          Explore Collection
+        </button>
+      </div>
+    </section>
+
+    <!-- Modern Category Filter Buttons -->
+    <section class="categories">
+      <button onclick="filterProducts('all')">All</button>
+      <button onclick="filterProducts('Grinder')">Grinders</button>
+      <button onclick="filterProducts('Scale')">Scales</button>
+      <button onclick="filterProducts('Brew')">Brew Methods</button>
+      <button onclick="filterProducts('Accessory')">Accessories</button>
+    </section>
+
+    <section class="products" id="products">
+      <h2>Curated Essentials</h2>
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will be dynamically added here -->
+      </div>
+    </section>
+
+    <!-- About Section (Our Story) -->
+    <section id="about">
+      <h2>Our Story</h2>
+      <p>
+        At Bean Culture, our passion for coffee goes beyond the brew. Founded by
+        coffee enthusiasts, we believe that every cup tells a story. From
+        sourcing the finest beans to designing modern tools, our journey is
+        fueled by innovation and a love for rich, flavorful experiences.
+      </p>
+      <p>
+        Our story is one of craftsmanship, dedication, and a relentless pursuit
+        of excellence. We invite you to join us as we explore the art and
+        science of coffee, and share in the moments that bring people
+        together—one cup at a time.
+      </p>
+    </section>
+
+    <!-- Journal (Blog) Section -->
+    <section id="blog">
+      <h2>Journal</h2>
+      <div class="blog-post">
+        <h3>The Journey of a Coffee Bean</h3>
+        <p>
+          Discover how a simple coffee bean transforms into the aromatic brew
+          that fuels our mornings. From sustainable farming practices to the art
+          of roasting, explore the journey behind your favorite cup.
+        </p>
+      </div>
+      <div class="blog-post">
+        <h3>Mastering the Perfect Brew</h3>
+        <p>
+          Whether you're a seasoned barista or a curious beginner, learn the
+          secrets to crafting the perfect cup of coffee. Explore tips,
+          techniques, and the essential tools that elevate your brewing
+          experience.
+        </p>
+      </div>
+      <!-- Add more blog posts as needed -->
+    </section>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="Product Image" />
+        <h3 id="modalTitle"></h3>
+        <p id="modalPrice"></p>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+        <button class="close-modal" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+      <div class="modal-content">
+        <h3>Your Cart</h3>
+        <div id="cartItemsList" style="margin: 1rem 0"></div>
+        <p id="cartTotal" style="font-weight: bold"></p>
+        <button class="close-modal" onclick="closeCart()">Close</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Bean Culture</h3>
+          <p>
+            Elevating coffee experiences through meticulously crafted tools and
+            accessories.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Returns & Exchanges</a>
+          <a href="#">Contact Support</a>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Product Data (with category property)
+      const products = [
+        {
+          id: 1,
+          name: "Barista Pro Grinder",
+          price: "$149.00",
+          image:
+            "https://m.media-amazon.com/images/I/71y+4X5YfSL._AC_SL1500_.jpg",
+          description:
+            "Professional-grade coffee grinder with precise settings.",
+          category: "Grinder",
+        },
+        {
+          id: 2,
+          name: "Digital Coffee Scale",
+          price: "$59.00",
+          image:
+            "https://m.media-amazon.com/images/I/61y6z4C4wSL._AC_SL1500_.jpg",
+          description: "High-precision scale for perfect coffee measurements.",
+          category: "Scale",
+        },
+        {
+          id: 3,
+          name: "Pour Over Coffee Set",
+          price: "$89.00",
+          image:
+            "https://m.media-amazon.com/images/I/81Z5+8-1wYL._AC_SL1500_.jpg",
+          description: "Complete pour-over kit for coffee enthusiasts.",
+          category: "Brew",
+        },
+        {
+          id: 4,
+          name: "Stainless Steel French Press",
+          price: "$49.00",
+          image:
+            "https://m.media-amazon.com/images/I/71y1z+Z8HmL._AC_SL1500_.jpg",
+          description: "Durable and stylish French press for rich coffee.",
+          category: "Brew",
+        },
+        {
+          id: 5,
+          name: "Coffee Tamper",
+          price: "$29.00",
+          image:
+            "https://m.media-amazon.com/images/I/71Z8Z8Z8Z8L._AC_SL1500_.jpg",
+          description: "Professional coffee tamper for espresso lovers.",
+          category: "Accessory",
+        },
+        {
+          id: 6,
+          name: "Milk Frother",
+          price: "$39.00",
+          image:
+            "https://m.media-amazon.com/images/I/71Z8Z8Z8Z8L._AC_SL1500_.jpg",
+          description:
+            "Electric milk frother for creamy lattes and cappuccinos.",
+          category: "Accessory",
+        },
+      ];
+
+      let cartItems = 0;
+      let cart = [];
+      let currentProduct = null;
+      let filteredProducts = [...products]; // Initially, all products
+
+      // Render Products Function
+      function renderProducts() {
+        const productsGrid = document.getElementById("productsGrid");
+        if (filteredProducts.length === 0) {
+          productsGrid.innerHTML = "<p>No products found.</p>";
+          return;
+        }
+        productsGrid.innerHTML = filteredProducts
+          .map(
+            (product) => `
+                <div class="product-card" onclick="openModal(${product.id})">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p class="product-price">${product.price}</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})">Add to Cart</button>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      // Filter Products by Category
+      function filterProducts(category) {
+        if (category === "all") {
+          filteredProducts = [...products];
+        } else {
+          filteredProducts = products.filter(
+            (product) => product.category === category
+          );
+        }
+        renderProducts();
+      }
+
+      // Open Product Modal
+      function openModal(productId) {
+        const product = products.find((p) => p.id === productId);
+        currentProduct = product;
+        document.getElementById("modalImage").src = product.image;
+        document.getElementById("modalTitle").textContent = product.name;
+        document.getElementById("modalPrice").textContent = product.price;
+        const modal = document.getElementById("productModal");
+        modal.style.display = "flex";
+        // Add fade-in effect
+        const modalContent = modal.querySelector(".modal-content");
+        modalContent.classList.remove("fade-out");
+        modalContent.classList.add("fade-in");
+      }
+
+      // Close Product Modal with fade-out
+      function closeModal() {
+        const modal = document.getElementById("productModal");
+        const modalContent = modal.querySelector(".modal-content");
+        modalContent.classList.remove("fade-in");
+        modalContent.classList.add("fade-out");
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 500);
+      }
+
+      // Add to Cart
+      function addToCart(productId) {
+        let product;
+        if (productId) {
+          product = products.find((p) => p.id === productId);
+        } else {
+          product = currentProduct;
+          closeModal();
+        }
+        if (product) {
+          cart.push(product);
+          cartItems++;
+          updateCartCount();
+          showNotification("Item added to cart");
+        }
+      }
+
+      // Update Cart Count Display
+      function updateCartCount() {
+        document.getElementById("cartCount").textContent = cartItems;
+      }
+
+      // Show Notification for Adding Items with fade effect
+      function showNotification(message) {
+        const notification = document.createElement("div");
+        notification.textContent = message;
+        notification.style.position = "fixed";
+        notification.style.bottom = "30px";
+        notification.style.right = "30px";
+        notification.style.backgroundColor = "var(--accent)";
+        notification.style.color = "#ffffff";
+        notification.style.padding = "1rem 2rem";
+        notification.style.borderRadius = "8px";
+        notification.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+        notification.style.zIndex = "1000";
+        notification.classList.add("fade-in");
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.classList.remove("fade-in");
+          notification.classList.add("fade-out");
+          setTimeout(() => notification.remove(), 500);
+        }, 2000);
+      }
+
+      // Open Cart Modal
+      function openCart() {
+        const cartModal = document.getElementById("cartModal");
+        const cartItemsList = document.getElementById("cartItemsList");
+        const cartTotal = document.getElementById("cartTotal");
+
+        if (cart.length === 0) {
+          cartItemsList.innerHTML = "<p>Your cart is empty.</p>";
+          cartTotal.textContent = "";
+        } else {
+          cartItemsList.innerHTML = cart
+            .map(
+              (item) =>
+                `<div style="display:flex; justify-content: space-between; margin-bottom: 1rem;">
+                  <span>${item.name}</span>
+                  <span>${item.price}</span>
+                </div>`
+            )
+            .join("");
+          let total = cart.reduce((sum, item) => {
+            return sum + parseFloat(item.price.replace("$", ""));
+          }, 0);
+          cartTotal.textContent = "Total: $" + total.toFixed(2);
+        }
+        cartModal.style.display = "flex";
+        const modalContent = cartModal.querySelector(".modal-content");
+        modalContent.classList.remove("fade-out");
+        modalContent.classList.add("fade-in");
+      }
+
+      // Close Cart Modal with fade-out
+      function closeCart() {
+        const cartModal = document.getElementById("cartModal");
+        const modalContent = cartModal.querySelector(".modal-content");
+        modalContent.classList.remove("fade-in");
+        modalContent.classList.add("fade-out");
+        setTimeout(() => {
+          cartModal.style.display = "none";
+        }, 500);
+      }
+
+      // Scroll to Sections when clicking "Explore Collection"
+      function scrollToProducts() {
+        document
+          .getElementById("products")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+      // Optionally, scroll to any section:
+      function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Initialize Products (show all by default)
+      renderProducts();
+    </script>
+  </body>
+</html>
