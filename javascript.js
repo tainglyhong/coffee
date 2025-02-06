@@ -4,7 +4,7 @@ const products = [
     id: 1,
     name: "Barista Pro Grinder",
     price: "$149.00",
-    image: "https://m.media-amazon.com/images/I/71y+4X5YfSL._AC_SL1500_.jpg",
+    image: "6.png",
     description: "Professional-grade coffee grinder with precise settings.",
     category: "Grinder",
   },
