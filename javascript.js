@@ -52,6 +52,56 @@ const products = [
     description: "Electric milk frother for creamy lattes and cappuccinos.",
     category: "Accessory",
   },
+  {
+    id: 7,
+    name: "Barista Pro Grinder",
+    price: "$549.00",
+    image:
+      "https://corporatecoffee.com.my/wp-content/uploads/2020/05/Fiorenzato-F5-coffee-grinder.jpg",
+    // "https://www.foodandwine.com/thmb/BuNbO0wq3jGgJHuTNIINNer44Ls=/fit-in/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/FAW-DeLonghi_LaSpecialistaPrestigio_EC9355M_8-0927-Russell-Kilgore.jpg-798c754b7a614cfdbf618d041eccc94d.jpg",
+    description: "Professional-grade coffee grinder with precise settings.",
+    category: "Grinder",
+  },
+  {
+    id: 8,
+    name: "Barista Pro Grinder",
+    price: "$49.00",
+    image:
+      "https://m.media-amazon.com/images/I/61zru5sGJWL._AC_UF1000,1000_QL80_.jpg",
+    // "https://corporatecoffee.com.my/wp-content/uploads/2020/05/Fiorenzato-F5-coffee-grinder.jpg",
+    // "https://www.foodandwine.com/thmb/BuNbO0wq3jGgJHuTNIINNer44Ls=/fit-in/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/FAW-DeLonghi_LaSpecialistaPrestigio_EC9355M_8-0927-Russell-Kilgore.jpg-798c754b7a614cfdbf618d041eccc94d.jpg",
+    description: "Professional-grade coffee grinder with precise settings.",
+    category: "Grinder",
+  },
+  {
+    id: 9,
+    name: "Digital Coffee Scale",
+    price: "$49.00",
+    // image: "https://m.media-amazon.com/images/I/71TvY+0+VpL._SL1500_.jpg",
+    image:
+      "https://clivecoffee.com/cdn/shop/articles/lunar_scale_with_beans_3544beff-470a-4be0-9788-0f594cf1aa87.jpg?v=1563395661&width=2400",
+    description: "High-precision scale for perfect coffee measurements.",
+    category: "Scale",
+  },
+  {
+    id: 10,
+    name: "Digital Coffee Scale",
+    price: "$49.00",
+    // image: "https://m.media-amazon.com/images/I/71TvY+0+VpL._SL1500_.jpg",
+    image:
+      "https://clivecoffee.com/cdn/shop/articles/lunar_scale_with_beans_3544beff-470a-4be0-9788-0f594cf1aa87.jpg?v=1563395661&width=2400",
+    description: "High-precision scale for perfect coffee measurements.",
+    category: "Scale",
+  },
+  {
+    id: 11,
+    name: "Stainless Steel French Press",
+    price: "$49.00",
+    image:
+      "https://cdn.shopify.com/s/files/1/0249/4283/7837/files/Blog_Image_Option_78_1024x1024.jpg?v=1673644193",
+    description: "Durable and stylish French press for rich coffee.",
+    category: "Brew",
+  },
 ];
 
 let cartItems = 0;
