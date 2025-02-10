@@ -265,5 +265,10 @@ function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
 
+function toggleMenu() {
+  const nav = document.getElementById("navLinks");
+  nav.classList.toggle("active");
+}
+
 // Initialize Products (show all by default)
 renderProducts();

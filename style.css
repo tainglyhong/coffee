@@ -85,6 +85,12 @@ header {
   z-index: 1000;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
+.hamburger {
+  display: none; /* Initially hidden */
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text);
+}
 nav {
   display: flex;
   justify-content: space-between;
@@ -381,12 +387,29 @@ footer {
 
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: none; /* Hide by default on small screens */
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
-  .hero h1 {
-    font-size: 2.5rem;
+
+  .nav-links.active {
+    display: flex; /* Show when active */
   }
-  .products-grid {
-    grid-template-columns: 1fr;
+
+  .nav-links a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger on small screens */
   }
 }
