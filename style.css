@@ -387,7 +387,7 @@ footer {
 
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* Hide by default on small screens */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 80px;
@@ -398,17 +398,15 @@ footer {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
-
   .nav-links.active {
     display: flex; /* Show when active */
   }
-
-  .nav-links a {
-    display: block;
-    padding: 1rem;
-    font-size: 1.2rem;
+  .hero h1 {
+    font-size: 2.5rem;
   }
-
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
   .hamburger {
     display: block; /* Show hamburger on small screens */
   }
