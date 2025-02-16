@@ -15,38 +15,42 @@
     <header>
       <nav>
         <div class="logo">BEAN<span>CULTURE</span></div>
-        <div class="nav-links" id="navLinks">
-          <a href="#products">Shop</a>
-          <a href="#about">Our Story</a>
-          <a href="#blog">Journal</a>
-          <div class="cart-counter" onclick="openCart()">
-            🛒 <span id="cartCount">0</span>
-          </div>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <!-- Hamburger Menu -->
+        <button class="hamburger" id="hamburger">☰</button>
+        <ul class="main-menu" id="mainMenu">
+          <li><a href="#home">Home</a></li>
+          <li class="dropdown">
+            <a href="#products" class="dropbtn">Products</a>
+            <ul class="sub-menu">
+              <li><a href="#coffee-beans">Coffee Beans</a></li>
+              <li><a href="#single">Single</a></li>
+              <li><a href="#origin">Origin</a></li>
+              <li><a href="#blends">Blends</a></li>
+              <li><a href="#decaf">Decaf</a></li>
+              <li><a href="#accessories">Accessories</a></li>
+              <li><a href="#cups-lids">Cups & Lids</a></li>
+              <li><a href="#filters">Filters</a></li>
+              <li><a href="#grinders-equipment">Grinders & Equipment</a></li>
+            </ul>
+          </li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
     </header>
 
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
       <div class="hero-content">
         <h1>Craft Your Perfect Coffee Experience</h1>
         <p>Premium tools for coffee enthusiasts and professional baristas</p>
-        <button onclick="scrollToProducts()" class="add-to-cart">
+        <button onclick="scrollToSection('products')">
           Explore Collection
         </button>
       </div>
     </section>
 
-    <!-- Modern Category Filter Buttons -->
-    <section class="categories">
-      <button onclick="filterProducts('all')">All</button>
-      <button onclick="filterProducts('Grinder')">Grinders</button>
-      <button onclick="filterProducts('Scale')">Scales</button>
-      <button onclick="filterProducts('Brew')">Brew Methods</button>
-      <button onclick="filterProducts('Accessory')">Accessories</button>
-    </section>
-
+    <!-- Products Section -->
     <section class="products" id="products">
       <h2>Curated Essentials</h2>
       <div class="products-grid" id="productsGrid">
@@ -54,47 +58,25 @@
       </div>
     </section>
 
-    <!-- About Section (Our Story) -->
+    <!-- About Section -->
     <section id="about">
       <h2>Our Story</h2>
       <p>
         At Bean Culture, our passion for coffee goes beyond the brew. Founded by
-        coffee enthusiasts, we believe that every cup tells a story. From
-        sourcing the finest beans to designing modern tools, our journey is
-        fueled by innovation and a love for rich, flavorful experiences.
+        coffee enthusiasts, we believe that every cup tells a story...
       </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
       <p>
-        Our story is one of craftsmanship, dedication, and a relentless pursuit
-        of excellence. We invite you to join us as we explore the art and
-        science of coffee, and share in the moments that bring people
-        together—one cup at a time.
+        Get in touch with us at
+        <a href="mailto:info@beanculture.com">info@beanculture.com</a>
       </p>
     </section>
 
-    <!-- Journal (Blog) Section -->
-    <section id="blog">
-      <h2>Journal</h2>
-      <div class="blog-post">
-        <h3>The Journey of a Coffee Bean</h3>
-        <p>
-          Discover how a simple coffee bean transforms into the aromatic brew
-          that fuels our mornings. From sustainable farming practices to the art
-          of roasting, explore the journey behind your favorite cup.
-        </p>
-      </div>
-      <div class="blog-post">
-        <h3>Mastering the Perfect Brew</h3>
-        <p>
-          Whether you're a seasoned barista or a curious beginner, learn the
-          secrets to crafting the perfect cup of coffee. Explore tips,
-          techniques, and the essential tools that elevate your brewing
-          experience.
-        </p>
-      </div>
-      <!-- Add more blog posts as needed -->
-    </section>
-
-    <!-- Product Modal -->
+    <!-- Modal for Product Details -->
     <div class="modal" id="productModal">
       <div class="modal-content">
         <img id="modalImage" src="" alt="Product Image" />
@@ -109,35 +91,11 @@
     <div class="modal" id="cartModal">
       <div class="modal-content">
         <h3>Your Cart</h3>
-        <div id="cartItemsList" style="margin: 1rem 0"></div>
-        <p id="cartTotal" style="font-weight: bold"></p>
+        <div id="cartItemsList"></div>
+        <p id="cartTotal"></p>
         <button class="close-modal" onclick="closeCart()">Close</button>
       </div>
     </div>
-
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Bean Culture</h3>
-          <p>
-            Elevating coffee experiences through meticulously crafted tools and
-            accessories.
-          </p>
-        </div>
-        <div class="footer-section">
-          <h3>Customer Service</h3>
-          <a href="#">Shipping Policy</a>
-          <a href="#">Returns & Exchanges</a>
-          <a href="#">Contact Support</a>
-        </div>
-        <div class="footer-section">
-          <h3>Connect</h3>
-          <a href="#">Instagram</a>
-          <a href="#">Twitter</a>
-          <a href="#">Pinterest</a>
-        </div>
-      </div>
-    </footer>
 
     <script src="javascript.js"></script>
   </body>
