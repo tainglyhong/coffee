@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bean Culture - Modern Coffee Essentials</title>
+    <title>Bean Culture - Redefined Coffee Experience</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -13,28 +13,29 @@
   </head>
   <body>
     <header>
-      <nav>
-        <div class="logo">BEAN<span>CULTURE</span></div>
+      <nav class="navbar">
+        <div class="logo">Bean Culture</div>
         <button class="hamburger" id="hamburger">☰</button>
-        <ul class="main-menu" id="mainMenu">
-          <li><a href="#home">Home</a></li>
-          <li class="dropdown">
-            <a href="#products" class="dropbtn">Products</a>
-            <ul class="sub-menu">
-              <li><a href="#coffee-beans">Coffee Beans</a></li>
-              <li><a href="#single">Single</a></li>
-              <li><a href="#origin">Origin</a></li>
-              <li><a href="#blends">Blends</a></li>
-              <li><a href="#decaf">Decaf</a></li>
-              <li><a href="#accessories">Accessories</a></li>
-              <li><a href="#cups-lids">Cups & Lids</a></li>
-              <li><a href="#filters">Filters</a></li>
-              <li><a href="#grinders-equipment">Grinders & Equipment</a></li>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item dropdown">
+            <a href="#products" class="nav-link dropbtn">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="#" class="dropdown-link" data-category="Coffee Beans">Coffee Beans</a></li>
+              <li><a href="#" class="dropdown-link" data-category="Single">Single</a></li>
+              <li><a href="#" class="dropdown-link" data-category="Origin">Origin</a></li>
+              <li><a href="#" class="dropdown-link" data-category="Blends">Blends</a></li>
+              <li><a href="#" class="dropdown-link" data-category="Decaf">Decaf</a></li>
+              <li><a href="#" class="dropdown-link" data-category="Accessories">Accessories</a></li>
+              <li><a href="#" class="dropdown-link" data-category="Cups & Lids">Cups & Lids</a></li>
+              <li><a href="#" class="dropdown-link" data-category="Filters">Filters</a></li>
+              <li><a href="#" class="dropdown-link" data-category="Grinders & Equipment">Grinders & Equipment</a></li>
+              <li><a href="#" class="dropdown-link" data-category="all">Show All</a></li>
             </ul>
           </li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -42,58 +43,79 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-content">
-        <h1>Craft Your Perfect Coffee Experience</h1>
-        <p>Premium tools for coffee enthusiasts and professional baristas</p>
-        <button onclick="scrollToSection('products')">
-          Explore Collection
+        <h1>Experience Coffee Like Never Before</h1>
+        <p>
+          Elevate your coffee journey with precision, style, and passion.
+        </p>
+        <button class="hero-btn" onclick="scrollToSection('products')">
+          Explore Our Collection
         </button>
       </div>
     </section>
 
     <!-- Products Section -->
     <section class="products" id="products">
-      <h2>Curated Essentials</h2>
-      <div class="products-grid" id="productsGrid">
-        <!-- Products will be dynamically added here -->
+      <div class="container">
+        <h2>Our Curated Collection</h2>
+        <div class="products-grid" id="productsGrid">
+          <!-- Product cards will load here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <p>
+          We provide bespoke services to enhance your coffee experience, from
+          personalized recommendations to expert brewing guides.
+        </p>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-      <h2>Our Story</h2>
-      <p>
-        At Bean Culture, our passion for coffee goes beyond the brew. Founded by
-        coffee enthusiasts, we believe that every cup tells a story...
-      </p>
+    <section class="about" id="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          At Bean Culture, coffee is not just a beverage; it’s a lifestyle.
+          Our passion is delivering a superior coffee experience through
+          innovation, design, and a love for the craft.
+        </p>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Get in touch with us at
-        <a href="mailto:info@beanculture.com">info@beanculture.com</a>
-      </p>
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>
+          For inquiries, please email us at
+          <a href="mailto:info@beanculture.com">info@beanculture.com</a>
+        </p>
+      </div>
     </section>
 
-    <!-- Modal for Product Details -->
+    <!-- Product Modal -->
     <div class="modal" id="productModal">
       <div class="modal-content">
-        <img id="modalImage" src="" alt="Product Image" />
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Product" />
         <h3 id="modalTitle"></h3>
         <p id="modalPrice"></p>
-        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
-        <button class="close-modal" onclick="closeModal()">Close</button>
+        <button class="btn add-to-cart" onclick="addToCart()">Add to Cart</button>
       </div>
     </div>
 
     <!-- Cart Modal -->
     <div class="modal" id="cartModal">
       <div class="modal-content">
+        <span class="close-modal" onclick="closeCart()">&times;</span>
         <h3>Your Cart</h3>
         <div id="cartItemsList"></div>
         <p id="cartTotal"></p>
-        <button class="close-modal" onclick="closeCart()">Close</button>
+        <button class="btn" onclick="closeCart()">Close</button>
       </div>
     </div>
 
